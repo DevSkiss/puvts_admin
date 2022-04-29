@@ -12,6 +12,7 @@ abstract class AuthApiService {
     required String lastname,
     required String email,
     required String password,
+    required String plateNumber,
   });
 
   Future<void> updateDriver({
@@ -95,6 +96,7 @@ class AuthApiServiceImpl extends AuthApiService {
     required String lastname,
     required String email,
     required String password,
+    required String plateNumber,
   }) async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
@@ -111,6 +113,8 @@ class AuthApiServiceImpl extends AuthApiService {
             'lastname': lastname,
             'email': email,
             'user_type': 'driver',
+            'plate_number': plateNumber,
+            'seat_available': 0,
             'active': false
           })
           .then((value) => userCredential)

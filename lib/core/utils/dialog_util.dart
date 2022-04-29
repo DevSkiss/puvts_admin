@@ -12,6 +12,7 @@ class DialogUtils {
   TextEditingController _lastnameController = TextEditingController();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  TextEditingController _plateNumberController = TextEditingController();
   static void showDialogMessage(BuildContext context,
       {String? title, String? message, void Function()? onPressed}) {
     showDialog<String>(
@@ -309,6 +310,13 @@ class DialogUtils {
                 hintText: 'Password',
                 obscureText: true,
               ),
+              const SizedBox(height: 12),
+              PuvtsTextfield(
+                controller: _passwordController,
+                borderColor: puvtsBlue,
+                hintText: 'Plate Number',
+                obscureText: true,
+              ),
               const SizedBox(height: 16),
               SizedBox(
                 width: double.infinity,
@@ -318,6 +326,7 @@ class DialogUtils {
                   icon: Icon(Icons.add_rounded),
                   onPressed: () async {
                     await _authApiService.createDriver(
+                      plateNumber: _plateNumberController.text,
                       firstname: _firstnameController.text,
                       lastname: _lastnameController.text,
                       email: _emailController.text,
