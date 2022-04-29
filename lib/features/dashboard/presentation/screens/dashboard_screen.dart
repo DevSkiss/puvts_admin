@@ -130,6 +130,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                           DataColumn(
                             label: Text(
+                              'PLATE NUMBER',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          DataColumn(
+                            label: Text(
                               'ACTION',
                               style: TextStyle(
                                 fontSize: 24,
@@ -145,6 +154,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   DataCell(Text(driver['firstname'])),
                                   DataCell(Text(driver['lastname'])),
                                   DataCell(Text(driver['email'])),
+                                  DataCell(Text(driver['plate_number'])),
                                   DataCell(Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
